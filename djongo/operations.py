@@ -92,3 +92,6 @@ class DatabaseOperations(BaseDatabaseOperations):
             'VALUES (%s)' % ', '.join(row)
             for row in placeholder_rows
         )
+
+    def date_trunc_sql(self, lookup_type, field_name):
+        return "EXTRACT(%s FROM %s)" % (lookup_type, field_name)  
